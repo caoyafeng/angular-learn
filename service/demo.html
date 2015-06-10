@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>服务</title>
+</head>
+
+<body ng-controller="getMaxCtrl">
+    <h2>求数组最大值</h2> {{max}}
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    // 定义服务
+    angular.module('tool', [])
+        .factory('array', function() {
+            return {
+                getMax: getMax
+            };
+
+            function getMax(arr) {
+                if (arr.length === 0) {
+                    return NaN;
+                }
+                var max = arr[0];
+                arr.forEach(function(each) {
+                    if (each > max) {
+                        max = each;
+                    }
+                });
+                return max;
+            }
+        });
+
+    angular.module("app", ['tool']);// 服务所在模块
+    angular.module("app")
+        .controller("getMaxCtrl", ['array', '$scope', function(array, $scope) {
+            // 使用服务
+            var numbers = [1, 2, 3, 4, 5];
+            $scope.max = array.getMax(numbers);
+        }]);
+    </script>
+</body>
+
+</html>

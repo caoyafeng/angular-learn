@@ -25,6 +25,7 @@
 * [模板](template)
 * [作用域](scope)
 * [控制器](controller)
+* [服务](service)
 * 模型
 * 视图
 * 指令
