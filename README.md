@@ -23,7 +23,7 @@
 ## 目录
 * [初始化](init)
 * [作用域](scope)
-* 控制器
+* [控制器](controller)
 * 模型
 * 视图
 * 指令
@@ -31,6 +31,7 @@
 
 
 ## 资源
+* [Angular Guide中文版](http://docs.ngnice.com/guide)
 * [AngularJS-Learning-zh_CN](https://github.com/justjavac/AngularJS-Learning-zh_CN)
 * [angularjs-cn](https://github.com/peiransun/angularjs-cn) "AngularJS"中译本 -《AngularJS》
 * [AngularJs入门教程](http://angularjs.cn/T006)AngularJs AngularJs中文社区提供
