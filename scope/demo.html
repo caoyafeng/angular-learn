@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>scope</title>
+</head>
+
+<body ng-controller="OnePieceCtrl">
+    <h2>{{name}}</h2>
+    <ul>
+        <li ng-repeat="p in peoples">
+            {{p.name}} {{p.skill}}
+            <!-- 生成的新的作用域-->
+        </li>
+    </ul>
+    <div class="lufei" ng-controller="LufeiCtrl">
+        <!-- 生成的新的作用域-->
+        <h3>{{name}}</h3> 我来自一部{{describe}}
+    </div>
+    {{gloable}}
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    angular.module("app", []);
+    angular.module("app")
+        .controller("OnePieceCtrl", ['$scope', '$rootScope', function($scope, $rootScope) {
+            $rootScope.gloable = '全局属性：我是要做海贼王的男人';
+            $scope.name = '海贼王';
+            $scope.peoples = [{
+                name: '路飞',
+                skill: '橡胶果实'
+            }, {
+                name: '乔巴',
+                snippet: '语言果实'
+            }];
+            $scope.describe = '热血动画';
+        }])
+        .controller("LufeiCtrl", ['$scope', function($scope) {
+            $scope.name = '路飞';
+        }]);
+    </script>
+</body>
+
+</html>

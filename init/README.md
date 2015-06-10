@@ -10,7 +10,7 @@
     </body>
 </html>
 ```
-[demo](http://htmlpreview.github.io/?https://github.com/iamjoel/angular-learn/blob/master/init/auto-inti.html)
+[demo](auto-init.html)
 
 AngularJS会在DOMContentLoaded事件触发时初始化项目
 
@@ -30,7 +30,7 @@ AngularJS会在DOMContentLoaded事件触发时初始化项目
 	</body>
 </html>
 ```
-[demo](http://htmlpreview.github.io/?https://github.com/iamjoel/angular-learn/blob/master/init/man-inti.html)
+[demo](man-init.html)
 
 
 ### 参考

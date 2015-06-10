@@ -22,13 +22,18 @@
 
 ## 目录
 * [初始化](init)
-
+* [作用域](scope)
+* 控制器
+* 模型
+* 视图
+* 指令
+* 过滤器
 
 
 ## 资源
-* [AngularJS-Learning-zh_CN](https://github.com/jmcunningham/AngularJS-Learning)
+* [AngularJS-Learning-zh_CN](https://github.com/justjavac/AngularJS-Learning-zh_CN)
 * [angularjs-cn](https://github.com/peiransun/angularjs-cn) "AngularJS"中译本 -《AngularJS》
-* [AngularJs 中文社区](http://www.angularjs.cn/)
+* [AngularJs入门教程](http://angularjs.cn/T006)AngularJs AngularJs中文社区提供
 * [todo-mvc angular](https://github.com/tastejs/todomvc/tree/master/examples/angularjs)
 
 ## 好文

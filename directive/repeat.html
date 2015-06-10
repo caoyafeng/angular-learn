@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>repeat</title>
+</head>
+
+<body ng-controller="PhoneListCtrl">
+    <ul>
+        <li ng-repeat="phone in phones">
+            {{phone.name}}
+            <p>{{phone.snippet}}</p>
+        </li>
+    </ul>
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    angular.module("app", []);
+    angular.module("app").controller("PhoneListCtrl", ["$scope", function($scope) {
+        $scope.phones = [{
+            name: '三星',
+            snippet: '三星手机'
+        }, {
+            name: 'iphone',
+            snippet: 'iphone手机'
+        }];
+    }]);
+    </script>
+</body>
+
+</html>
