@@ -22,6 +22,7 @@
 
 ## 目录
 * [初始化](init)
+* [模板](template)
 * [作用域](scope)
 * [控制器](controller)
 * 模型
