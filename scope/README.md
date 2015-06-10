@@ -7,5 +7,7 @@ AngularJS 中，作用域是一个指向应用模型的对象，它是表达式�
 
 一些 AngularJS 指令会创建新的子作用域，并且进行原型继承： ng-repeat、ng-include、ng-switch、ng-view、ng-controller, 用 scope: true 和 transclude: true 创建的 directive。
 
+`$parent`可拿到父级作用域
+
 ## 参考
 * [AngularJS 作用域与数据绑定机制](https://www.ibm.com/developerworks/cn/opensource/os-cn-AngularJS/)

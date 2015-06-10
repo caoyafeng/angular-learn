@@ -16,7 +16,7 @@
     </ul>
     <div class="lufei" ng-controller="LufeiCtrl">
         <!-- 生成的新的作用域-->
-        <h3>{{name}}</h3> 我来自一部{{describe}}
+        <h3>{{name}}</h3> 我来自{{$parent.name}}：是一部{{describe}}
     </div>
     {{gloable}}
     <script src="../assets/vendor/angular.js"></script>
