@@ -27,7 +27,7 @@
 * [控制器](controller)
 * [数据监控](watch)
 * [服务](service)
-* 模型
+* [模型](model)
 * 视图
 * 指令
 * 过滤器
