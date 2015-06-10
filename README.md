@@ -20,11 +20,12 @@
 </html>
 ```
 
-## 目录
+## 概念
 * [初始化](init)
 * [模板](template)
 * [作用域](scope)
 * [控制器](controller)
+* [数据监控](watch)
 * [服务](service)
 * 模型
 * 视图

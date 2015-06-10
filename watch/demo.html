@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>watch</title>
+</head>
+
+<body ng-controller="NumsCtrl">
+    <h2>一堆数字</h2>
+    <ul>
+        <li ng-repeat="n in numbers">
+            {{n}}
+        </li>
+    </ul>
+    <a href="javascript:void(0);" ng-click="shulff()">乱序</a>
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    angular.module("app", []);
+    angular.module("app")
+        .controller("NumsCtrl", ['$scope', function($scope) {
+            $scope.numbers = [1, 2, 3, 4, 5];
+            $scope.i = 0;
+            $scope.shulff = function() {
+                $scope.i++;
+                $scope.numbers.sort(function() {
+                    return Math.random() - 0.5 > 0 ? 1 : -1;
+                });
+            };
+            $scope.$watch("i", function(newValue, oldValue){
+                if($scope.i == 0){
+                    return;
+                }
+                console.log('第%d次', newValue);
+            });
+
+            $scope.$watch("numbers", function(newValue, oldValue){
+                if($scope.i == 0){
+                    return;
+                }
+                console.log('数组由%s->%s', oldValue.join(), newValue.join());
+            }, true);
+        }]);
+    </script>
+</body>
+
+</html>
