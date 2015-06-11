@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>route</title>
+</head>
+
+<body ng-controller="RouteCtrl">
+    <button ng-click="toPage(1)">加载个html</button>
+    <button ng-click="toPage(2)">加载个内联的html</button>
+    <button ng-click="toPage('3/joel')">带参数</button>
+    <script src="../assets/vendor/angular.js"></script>
+    <script src="../assets/vendor/angular-route.min.js"></script>
+    <div ng-view></div>
+    <script>
+    var app = angular.module("app", ['ngRoute']);
+    app.config(function($routeProvider) {
+        $routeProvider.when('/page1', {
+            templateUrl: 'views/page1.html',
+            controller: 'Page1Ctrl'
+        }).when('/page2', {
+            template: '我是内联的页面：{{name}}',
+            controller: 'InlineCtrl'
+        }).when('/page3/:name', {
+            template: '参数值：{{name}}',
+            controller: 'ParamCtrl'
+        });
+
+    });
+    app.controller("RouteCtrl", ['$scope', '$location', function($scope, $location) {
+        $scope.toPage = function(i) {
+            $location.path('/page' + i);
+        };
+    }]);
+
+    app.controller("Page1Ctrl", ['$scope', function($scope) {
+       $scope.name = 'page1';
+    }]);
+
+    app.controller("InlineCtrl", ['$scope', function($scope) {
+       $scope.name = 'inline template';
+    }]);
+
+    app.controller("ParamCtrl", ['$scope', '$routeParams', function($scope, $routeParams) {
+       $scope.name = $routeParams.name;
+    }]);
+
+    $routeParams
+    </script>
+</body>
+
+</html>

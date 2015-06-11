@@ -46,5 +46,8 @@
 * [todo-mvc angular](https://github.com/tastejs/todomvc/tree/master/examples/angularjs)
 * [Angular指令及组件的全面范例](https://github.com/angular-cn/ng-showcase)
 
+## 博客
+* [破狼](http://www.cnblogs.com/whitewolf/category/404298.html)
+
 ## 好文
 * [Angular2 简介](http://zhuanlan.zhihu.com/FrontendMagazine/20058966)
