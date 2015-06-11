@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ng-if</title>
+</head>
+
+<body ng-controller="Ctrl">
+    <div ng-if="true">balabala</div>
+    <div ng-if="false">false</div>
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    var app = angular.module("app", []);
+    app.controller('Ctrl', ['$scope', function($scope) {
+    }]);
+    </script>
+</body>
+
+</html>

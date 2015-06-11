@@ -7,10 +7,17 @@
 </head>
 
 <body ng-controller="PhoneListCtrl">
+    遍历数组
     <ul>
         <li ng-repeat="phone in phones">
             {{phone.name}}
             <p>{{phone.snippet}}</p>
+        </li>
+    </ul>
+    遍历对象
+    <ul>
+        <li ng-repeat="(key, val) in obj">
+            {{key}}: {{val}}
         </li>
     </ul>
     <script src="../assets/vendor/angular.js"></script>
@@ -24,6 +31,12 @@
             name: 'iphone',
             snippet: 'iphone手机'
         }];
+
+        $scope.obj = {
+            name: '荔枝',
+            type: '水果',
+            price: '￥12'
+        }
     }]);
     </script>
 </body>

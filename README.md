@@ -28,14 +28,31 @@
   * `as`
   * `$parent`
   * 事件： 作用域之间接传递消息
+* [指令](directives) (Directives)
+  * 系统指令
+  * 自定义指令
 * [控制器](controller)
 * [数据监控](watch)
 * [服务](service)
 * [模型](model)
-* 指令 (Directives)
-* 视图
-* 路由
+* [路由](route)
+  * ui route
 * 过滤器
+* angular自带工具方法
+* 加载器
+* 测试
+
+## angular的文件
+* angular-mocks.js — This file contains an implementation of mocks that makes testing angular apps even easier. Your unit/integration test harness should load this file after angular.js is loaded.
+* angular-scenario.js — This file is a very nifty JavaScript file that allows you to write and execute end-to-end tests for angular applications.
+* angular-loader.min.js — Module loader for Angular modules. If you are loading multiple script files containing Angular modules, you can load them asynchronously and in any order as long as you load this file first. Often the contents of this file are copy&pasted into the index.html to avoid even the initial request to angular-loader.min.js. See angular-seed for an example of usage.
+* angular-animate.js - Enable animation support
+* angular-cookies.js - A convenient wrapper for reading and writing browser cookies
+* angular-resource.js - Interaction support with RESTful services via the $resource service
+* angular-route.js - Routing and deeplinking services and directives for angular apps
+* angular-sanitize.js - Functionality to sanitize HTML
+* angular-touch.js - Touch events and other helpers for touch-enabled devices
+
 
 
 ## 资源

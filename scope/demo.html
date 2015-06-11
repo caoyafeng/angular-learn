@@ -4,6 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <title>scope</title>
+    <style>
+    .ng-scope{
+        position: relative;
+        outline: 1px solid #f00;
+    }
+    .ng-scope:after{
+        content: '作用域边框';
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 12px;
+        color: #333;
+    }
+    </style>
 </head>
 
 <body ng-controller="OnePieceCtrl">

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ng-init</title>
+    <style>
+    li{
+    	display: inline-block;
+    	height: 26px;
+    	line-height: 26px;
+    	width: 40px;
+    	background-color: #ddd;
+    	color: #fff;
+    	text-align: center;
+    }
+    li.active{
+    	background-color: #f00;
+    }
+    </style>
+</head>
+
+<body ng-controller="Ctrl">
+    <ul>
+    	<li ng-class="getClass(1)" ng-click="click(1)">1</li>
+    	<li ng-class="getClass(2)" ng-click="click(2)">2</li>
+    	<li ng-class="getClass(3)" ng-click="click(3)">3</li>
+    </ul>
+
+    <ul>
+    	<li class="{{getClass(1)}}" ng-click="click(1)">1</li>
+    	<li class="{{getClass(2)}}" ng-click="click(2)">2</li>
+    	<li class="{{getClass(3)}}" ng-click="click(3)">3</li>
+    </ul>
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    var app = angular.module("app", []);
+    app.controller('Ctrl', ['$scope', function($scope) {
+    	$scope.currIndex = 1;
+    	$scope.click = function(i){
+    		$scope.currIndex = i;
+    	};
+
+    	$scope.getClass = function(i){
+    		var className = '';
+    		if(i == $scope.currIndex){
+    			className = 'active';
+    		}
+    		return className;
+    	};
+
+    }]);
+    </script>
+</body>
+
+</html>

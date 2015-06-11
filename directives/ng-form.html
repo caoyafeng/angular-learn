@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ng-form相关</title>
+</head>
+
+<body>
+	详情见 http://www.cnblogs.com/Kavlez/p/angularjs_form_validation.html
+    <form action="" ng-controller="validationController"  name="mainForm"  novalidate>
+        <p>Email({{email}}):
+            <input type="email" name="email" ng-model="email" ng-change="mailChange()" required>
+            <span style="color:red" ng-show="mainForm.email.$dirty && mainForm.email.$invalid">
+            <span ng-show="mainForm.email.$error.required">Email is required.</span>
+            <span ng-show="mainForm.email.$error.email">Invalid email address.</span>
+            </span>
+        </p>
+        <p>
+            <input type="submit" ng-disabled="mainForm.$invalid">
+        </p>
+    </form>
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    var app = angular.module("app", []);
+    app.controller('validationController', ['$scope', function($scope) {
+        // $scope.email = 'sweet_dreams@aliyun.com';
+        $scope.mailChange = function(){
+        	console.log('mail changed  to %s', $scope.email);
+        };
+    }]);
+    </script>
+</body>
+
+</html>

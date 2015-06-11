@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ng-show-hide</title>
+</head>
+
+<body ng-controller="Ctrl" ng-init="isT1Show=true;isT2Hide=false;">
+    <div ng-show="isT1Show">文本1</div>
+    <button ng-click="isT1Show=!(!!isT1Show)">toogle文本1的显示隐藏</button><br>
+    <div ng-hide="isT2Hide">文本2</div>
+    <button ng-click="isT2Hide=!(!!isT2Hide)">toogle文本2的显示隐藏</button>
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    var app = angular.module("app", []);
+    app.controller('Ctrl', ['$scope', function($scope) {
+    }]);
+    </script>
+</body>
+
+</html>
