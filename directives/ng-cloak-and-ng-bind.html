@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ng-cloak 避免闪烁</title>
+    <style>
+    [ng-cloak]{
+        display: none;
+    }
+    </style>
+</head>
+
+<body ng-controller="Ctrl">
+    <div ng-cloak>{{ name }}</div>
+    <div ng-bind="name"></div>
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    var app = angular.module("app", []);
+    app.controller('Ctrl',function($scope) {
+        $scope.name = 'joel';
+    });
+    </script>
+</body>
+
+</html>

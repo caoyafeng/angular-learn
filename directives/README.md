@@ -42,6 +42,16 @@ angularjs的执行都是在DOM渲染完成之后，如果我们在angularjs执�
 ```
 区别是，如果用src，那边它会先去请求地址为{{src}}图标，导致404。因为指令是在dom Loaded后才会转化成html
 
+## ng-cloak 和 ng-bind
+在如Chrome这类能够快速解析的浏览器上出现表达式的闪烁。对于这个问题由于JavaScript去操作DOM，都会等待DOM加载完成（DOM ready）。对于angular会在DOM ready完会才回去解析html view Template，所以对于Chrome这类快速的浏览器你会看见有闪烁的情况出现。而对于IE7，8这类解析稍慢的浏览器大部分情况下是不会出现这个问题的。
+
+通过在元素上加`ng-cloak`或用`ng-bind`代替`{{}}`的方式，可以防止闪烁，如
+```
+<div ng-cloak>{{ name }}</div>
+<div ng-bind="name"></div>
+```
+
+
 ## ng-include
 引入内容。
 ```
