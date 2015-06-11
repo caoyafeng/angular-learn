@@ -27,6 +27,7 @@
   * `$scope`
   * `as`
   * `$parent`
+  * 事件： 作用域之间接传递消息
 * [控制器](controller)
 * [数据监控](watch)
 * [服务](service)

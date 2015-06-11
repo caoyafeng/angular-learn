@@ -23,6 +23,24 @@ AngularJS 中，作用域是一个指向应用模型的对象，它是表达式�
 ```
 如果使用as，则不需要注入$scope,在controller中直接在this上绑属性和方法即可
 
+## 事件
+使用事件的主要作用是消除模块间的耦合，发送方是不需要知道接收方的状况的，接收方也不需要知道发送方的状况，双方只需要传送必要的业务数据即可。    
+
+从作用域往上发送事件，使用scope.$emit
+```
+$scope.$emit("someEvent", {});
+```
+从作用域往下发送事件，使用scope.$broadcast
+```
+$scope.$broadcast("someEvent", {});
+```
+这两个方法的第二个参数是要随事件带出的数据。
+
+注意，这两种方式传播事件，事件的发送方自己也会收到一份。
+。
+
+
 ## 参考
+* [AngularJS实例教程（二）——作用域与事件](https://github.com/xufei/blog/issues/18)
 * [AngularJS 作用域与数据绑定机制](https://www.ibm.com/developerworks/cn/opensource/os-cn-AngularJS/)
 * [Thoughts on Angular's Controller As Syntax](http://odetocode.com/blogs/scott/archive/2014/08/11/thoughts-on-angular-controller-as-syntax.aspx)

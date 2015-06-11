@@ -14,14 +14,14 @@
             <!-- 生成的新的作用域-->
         </li>
     </ul>
+    <a href="javascript:void(0);" ng-click="callPeo()">叫人</a>
     <div class="lufei" ng-controller="LufeiCtrl">
         <!-- 生成的新的作用域-->
         <h3>{{name}}</h3> 我来自{{$parent.name}}：是一部{{describe}}
     </div>
     {{gloable}}
     <div class="lufei" ng-controller="AsCtrl as ctrl">
-        <h2>使用<code>as</code>来绑定作用域</h2>
-        {{ctrl.name}}
+        <h2>使用<code>as</code>来绑定作用域</h2> {{ctrl.name}}
     </div>
     <script src="../assets/vendor/angular.js"></script>
     <script>
@@ -38,9 +38,25 @@
                 snippet: '语言果实'
             }];
             $scope.describe = '热血动画';
+            $scope.callPeo = function() {
+                //从作用域往下发送事件，使用$scope.$broadcast
+                $scope.$broadcast('callPeo', {
+                    name: $scope.name
+                });
+            };
+            $scope.$on('callRetuen', function(e) {
+                console.log('%s收到来自%s的回复', $scope.name, e.targetScope.name);
+            });
         }])
         .controller("LufeiCtrl", ['$scope', function($scope) {
             $scope.name = '路飞';
+            $scope.$on('callPeo', function(e) {
+                console.log('%s收到来自%s的召唤', $scope.name, e.targetScope.name);
+                // 从作用域往上发送事件，使用$scope.$emit
+                $scope.$emit('callRetuen', {
+                    name: $scope.name
+                });
+            });
         }])
         .controller("AsCtrl", [function() {
             this.name = '如果使用as，则不需要注入$scope,在controller中直接在this上绑属性和方法即可';
