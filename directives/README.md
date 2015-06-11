@@ -42,6 +42,13 @@ angularjs的执行都是在DOM渲染完成之后，如果我们在angularjs执�
 ```
 区别是，如果用src，那边它会先去请求地址为{{src}}图标，导致404。因为指令是在dom Loaded后才会转化成html
 
+## ng-include
+引入内容。
+```
+<div ng-include="'path/to/html'"></div>
+```
+注意:使用ng-include的时候，`path/to/html`相当于一个字符串，不是ng-expression，所以不要忘了加单引号。
+
 ## ng-style
 样式
 

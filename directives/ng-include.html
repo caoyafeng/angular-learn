@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ng-inclued</title>
+</head>
+
+<body ng-controller="Ctrl">
+    <div ng-include="url"></div>
+    <div ng-include="'included-html.html'"></div>
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    var app = angular.module("app", []);
+    app.controller('Ctrl', function($scope) {
+        $scope.url = 'included-html.html';
+        $scope.name = "inclued html";
+    });
+    </script>
+</body>
+
+</html>
