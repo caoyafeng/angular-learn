@@ -37,10 +37,14 @@
 * [模型](model)
 * [路由](route)
   * ui route
+* [一些坑](shit)
 * 过滤器
 * angular自带工具方法
 * 加载器
 * 测试
+
+
+
 
 ## angular的文件
 * angular-mocks.js — This file contains an implementation of mocks that makes testing angular apps even easier. Your unit/integration test harness should load this file after angular.js is loaded.

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>shit</title>
+</head>
+<body ng-controller="Ctrl">
+	300ms变一下 {{val}}
+    <script src="../assets/vendor/angular.js"></script>
+	<script>
+	angular.module("app", []);
+    angular.module("app")
+        .controller("Ctrl",function($scope, $interval) {
+        	$scope.val = Math.random();
+        	// not wrok
+        	// setInterval(function(){
+        	// 	$scope.val = Math.random();
+        	// }, 300);
+
+			// $timeout -> setTimeout
+        	$interval(function(){
+        		$scope.val = Math.random();
+        	}, 300);
+        });
+	</script>
+</body>
+</html>
