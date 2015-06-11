@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <style>
+    .outer{
+        width: 500px;
+        margin: 50px auto;
+        background-color: #f00;
+        padding: 50px;
+    }
+    .outer.hover{
+        outline: 5px solid #ff0;
+    }
+    .outer .inner{
+        margin: 0 auto;
+        background-color: #fff;
+        height: 50px;
+        width: 50px;
+    }
+    </style>
+</head>
+
+<body ng-controller="EventCtrl">
+	<button ng-click="triggerEvent('单击', $event)" ng-dblclick="triggerEvent('双击')"  ng-mousedown="triggerEvent('mousedown')"   ng-keydown="triggerEvent('keydown')">各种点我</button>
+
+    <input type="text" ng-focus="triggerEvent('获得焦点', $event)"  ng-blur="triggerEvent('失去焦点')" ng-change="triggerEvent('内容变化')" ng-model="text" >
+
+    <input type="checkbox" ng-model="check" ng-click="checked($event)">
+
+    <select ng-model="select" ng-change="selected(select)" value="{{select}}">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+
+    <div class="outer" ng-mouseenter="className='hover'" ng-mouseleave="className=''" ng-class="className">
+        <div class="inner"></div>
+    </div>
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    var app = angular.module("app", []);
+    app.controller('EventCtrl', function($scope) {
+        $scope.triggerEvent = function(evtName, $event){
+            console.log(evtName);
+            if($event){
+                console.log('%o\n被%s', $event.target, $event.type);
+            }
+        };
+
+        $scope.checked = function($event){
+            console.log('checked: %s', $event.target.checked);
+        };
+
+        $scope.select = 2;
+        $scope.selected = function(val){
+            console.log('seleced: %s', val);
+        }
+
+    });
+    </script>
+</body>
+
+</html>

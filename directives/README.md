@@ -23,15 +23,46 @@ ng-init="name='joel';habbit='coding,eating'"
 ## ng-hide/ng-show
 元素的隐藏，显示
 
-## ng-if
+### ng-if
 如果ng-if中的表达式为false，则对应的元素整个会从DOM中移除而非隐藏，但审查元素时你可以看到表达式变成注释了
 
-## ng-src
+
+### ng-href
+```
+<a href="/avatar/{{hash}}">link1</a>
+```
+angularjs的执行都是在DOM渲染完成之后，如果我们在angularjs执行这个表达式之前点击了链接，那么就直接访问了/avatar/{{hash}}，一般都会跳转到404页面，用户体验太烂了。
+
+使用了`ng-href`就就可以避免出现这种问题。
+
+### ng-src
 ```
 <img ng-src="{{src}}" alt="">
 <img src="{{src}}" alt="">
 ```
 区别是，如果用src，那边它会先去请求地址为{{src}}图标，导致404。因为指令是在dom Loaded后才会转化成html
+
+## ng-style
+样式
+
+## ng-transclude
+
+
+### 事件
+* ng-click
+* ng-dblclick
+* ng-mousedown
+* ng-mouseup
+* ng-mouseenter
+* ng-mouseleave
+* ng-mousemove
+* ng-mouseover
+* ng-keydown
+* ng-keyup
+* ng-keypress
+* ng-focus
+* ng-blur
+* ng-change 设置该属性必须设置ng-model,只要ng-model变化，就会触发该事件
 
 ### ng-form
 表单相关的
@@ -39,7 +70,6 @@ ng-init="name='joel';habbit='coding,eating'"
 * ng-readonly true/false设置表单元素是否可读
 * ng-checked
 * ng-selected
-* ng-change
 
 
 ## 编译过程和指令匹配
@@ -49,7 +79,7 @@ ng-init="name='joel';habbit='coding,eating'"
 
 1. 通过调用一步所说的链接函数来将模板与作用域链接起来。这会轮流调用每一个指令的链接函数，让每一个指令都能对DOM注册监听事件，和建立对作用域的的监听。这样最后就形成了作用域的DOM的动态绑定。任何一个作用域的改变都会在DOM上体现出来。
 
-## 自定义
+## 自定义指令
 
 
 ## 参考
