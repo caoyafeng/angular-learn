@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>dyn-bind-html</title>
+</head>
+
+<body ng-controller="Ctrl">
+    <button ng-click="add()">添加</button>
+    <div class="wrap"></div>
+    <script src="../assets/vendor/angular.js"></script>
+    <script src="../assets/vendor/jquery.js"></script>
+    <script>
+    angular.module("app", []);
+    angular.module("app")
+        .controller("Ctrl", function($scope, $compile) {
+            var $wrap = $('.wrap');
+            var btnHTML = '<button ng-click="click()" class="ng-scope">点我</button>';
+            $scope.add = function(){
+                $wrap.append($compile(btnHTML)($scope));
+            };
+
+            $scope.click = function(){
+                console.log('click');
+            };
+        });
+    </script>
+</body>
+
+</html>

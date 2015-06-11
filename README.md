@@ -36,6 +36,7 @@
 * [服务](service)
 * [模型](model)
 * [路由](route)
+* [动态加DOM元素事件的绑定](dyn-bind-event)
   * ui route
 * [一些坑](shit)
 * 过滤器
