@@ -36,11 +36,11 @@
 * [服务](service)
 * [模型](model)
 * [路由](route)
-* [动态加DOM元素事件的绑定](dyn-bind-event)
   * ui route
+* [动态加DOM元素事件的绑定](dyn-bind-event)
 * [一些坑](shit)
 * 过滤器
-* angular自带工具方法
+* [angular自带工具方法](tool)
 * 加载器
 * 测试
 
