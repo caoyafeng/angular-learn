@@ -19,6 +19,10 @@
         <h3>{{name}}</h3> 我来自{{$parent.name}}：是一部{{describe}}
     </div>
     {{gloable}}
+    <div class="lufei" ng-controller="AsCtrl as ctrl">
+        <h2>使用<code>as</code>来绑定作用域</h2>
+        {{ctrl.name}}
+    </div>
     <script src="../assets/vendor/angular.js"></script>
     <script>
     angular.module("app", []);
@@ -37,6 +41,9 @@
         }])
         .controller("LufeiCtrl", ['$scope', function($scope) {
             $scope.name = '路飞';
+        }])
+        .controller("AsCtrl", [function() {
+            this.name = '如果使用as，则不需要注入$scope,在controller中直接在this上绑属性和方法即可';
         }]);
     </script>
 </body>

@@ -9,5 +9,20 @@ AngularJS 中，作用域是一个指向应用模型的对象，它是表达式�
 
 `$parent`可拿到父级作用域
 
+## 使用`as`
+```
+<div ng-controller="AsCtrl as ctrl">
+    {{ctrl.name}}
+</div>
+
+```
+```
+.controller("AsCtrl", [function() {
+    this.name = '如果使用as，则不需要注入$scope,在controller中直接在this上绑属性和方法即可';
+}]);
+```
+如果使用as，则不需要注入$scope,在controller中直接在this上绑属性和方法即可
+
 ## 参考
 * [AngularJS 作用域与数据绑定机制](https://www.ibm.com/developerworks/cn/opensource/os-cn-AngularJS/)
+* [Thoughts on Angular's Controller As Syntax](http://odetocode.com/blogs/scott/archive/2014/08/11/thoughts-on-angular-controller-as-syntax.aspx)

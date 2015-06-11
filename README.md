@@ -24,11 +24,14 @@
 * [初始化](init)
 * [模板](template)
 * [作用域](scope)
+  * `$scope`
+  * `as`
+  * `$parent`
 * [控制器](controller)
 * [数据监控](watch)
 * [服务](service)
 * [模型](model)
-* 指令
+* 指令 (Directives)
 * 视图
 * 路由
 * 过滤器
@@ -40,6 +43,7 @@
 * [angularjs-cn](https://github.com/peiransun/angularjs-cn) "AngularJS"中译本 -《AngularJS》
 * [AngularJs入门教程](http://angularjs.cn/T006)AngularJs AngularJs中文社区提供
 * [todo-mvc angular](https://github.com/tastejs/todomvc/tree/master/examples/angularjs)
+* [Angular指令及组件的全面范例](https://github.com/angular-cn/ng-showcase)
 
 ## 好文
 * [Angular2 简介](http://zhuanlan.zhihu.com/FrontendMagazine/20058966)
