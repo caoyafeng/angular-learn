@@ -42,7 +42,7 @@
   * ui route
 * [动态加DOM元素事件的绑定](dyn-bind-event)
 * [一些坑](shit)
-* 过滤器
+* [过滤器](filter)
   * 内置过滤器
   * 自定义过滤器
 * [angular自带工具方法](tool)
