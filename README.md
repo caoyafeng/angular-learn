@@ -40,9 +40,12 @@
 * [动态加DOM元素事件的绑定](dyn-bind-event)
 * [一些坑](shit)
 * 过滤器
+  * 内置过滤器
+  * 自定义过滤器
 * [angular自带工具方法](tool)
 * 加载器
 * 测试
+* [最佳实践](best-practice)
 
 
 
@@ -60,6 +63,7 @@
 
 
 
+
 ## 资源
 * [Angular Guide中文版](http://docs.ngnice.com/guide)
 * [AngularJS-Learning-zh_CN](https://github.com/justjavac/AngularJS-Learning-zh_CN)
@@ -67,6 +71,8 @@
 * [AngularJs入门教程](http://angularjs.cn/T006)AngularJs AngularJs中文社区提供
 * [todo-mvc angular](https://github.com/tastejs/todomvc/tree/master/examples/angularjs)
 * [Angular指令及组件的全面范例](https://github.com/angular-cn/ng-showcase)
+* [Angular风格指南](https://github.com/johnpapa/angular-styleguide/blob/master/i18n/zh-CN.md)
+* [awesome-angularjs](https://github.com/gianarb/awesome-angularjs)
 
 ## 博客
 * [破狼](http://www.cnblogs.com/whitewolf/category/404298.html)

@@ -9,9 +9,10 @@
 <body ng-controller="NameCtrl">
     <input type="text" ng-model="name">
     <div>{{name}}</div>
+    <div ng-bind="::name"></div>
     <script src="../assets/vendor/angular.js"></script>
     <script>
-    angular.module("app", ['ngRoute']);
+    angular.module("app", []);
     angular.module("app")
         .controller("NameCtrl", ['$scope', function($scope) {
             $scope.names = ['joel', 'jack', 'jimmy', 'john'];

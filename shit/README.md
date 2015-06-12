@@ -15,3 +15,20 @@ $timeout(function() {
   $scope.time = new Date();
 });
 ```
+
+或者
+```
+setTimeout(function() {
+    $scope.$apply(function() {// 通知更新
+        $scope.val2 = Math.random();
+    });
+}, 300);
+```
+
+### 当数组中有重复的基本元素时会报错
+用`track by $index`。如
+```
+<li ng-repeat="item in [1,5,6,1] track by $index">
+    {{item}}
+</li>
+```

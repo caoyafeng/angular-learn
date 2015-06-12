@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+</head>
+
+<body ng-controller="Ctrl">
+	<p>转小写:<span>{{'AbCdefgG323' | lowercase}}</span></p>
+	<p>转大写:<span  ng-bind="'AbCdefgG323' | uppercase"></span></p>
+	<p>四舍五入取两位: <span ng-bind="3.56535 | number:2"></span></p>
+	<p>日期: <span ng-bind="today | date:'yyyy-MM-dd'"></span></p>
+	{{new Date()}}
+
+
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    var app = angular.module("app", []);
+    app.controller("Ctrl", function($scope) {
+    	$scope.today = new Date();// 直接在 ng-bind里用 new Date会报错
+    });
+    </script>
+</body>
+
+</html>
