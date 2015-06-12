@@ -34,6 +34,9 @@
 * [控制器](controller)
 * [数据监控](watch)
 * [服务](service)
+  * factory
+  * service
+  * provider
 * [模型](model)
 * [路由](route)
   * ui route
