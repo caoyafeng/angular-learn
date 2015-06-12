@@ -44,7 +44,7 @@
   * 自定义过滤器
 * [angular自带工具方法](tool)
 * 加载器
-* 测试
+* [测试](test)
 * [最佳实践](best-practice)
 
 

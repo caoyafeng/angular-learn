@@ -16,7 +16,7 @@ AngularJS会在DOMContentLoaded事件触发时初始化项目
 
 ### 手动初始化
 用js来初始化。    
-`angular.bootstrap(elem, modelName);`,如
+`angular.bootstrap(elem, [appName]);`,如
 ```
 <!DOCTYPE html>
 <html>
