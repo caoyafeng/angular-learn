@@ -24,9 +24,12 @@ app.config(function($routeProvider) {
 ```
 $location.path('...');
 ```
+当path满足when中定义的path时，就会加载对应的模板内容
 
-## ng-view
-输出在生成在`ng-view`的元素中
+## 视图
+视图是那块根据不同路由显示不同内容的元素。    
+定义视图的方式为在元素上添加`ng-view`属性。    
+ngRoute只支持单视图。
 
 ## 获取路径参数
 用`$routeParams`来获取
@@ -37,6 +40,15 @@ app.controller("ParamCtrl", ['$scope', '$routeParams', function($scope, $routePa
 }]);
 ```
 
+## UI Route的优势
+* 多视图：页面可以显示多个动态变化的不同区块。 ng-view是单视图的
+
+## 按需加载Controller
+
 
 ## 参考
 * [理解AngularJS指令 -- ng-view](http://www.html-js.com/article/Understanding-the-AngularJS-command--ngview-with-Angular-development-web-application)
+
+## 拓展阅读
+* [Angular路由深入浅出](http://div.io/topic/1096)
+* [按需加载 AngularJS 的 Controller](http://beginor.github.io/2014/12/20/angularjs-controller-load-on-demand.html)
