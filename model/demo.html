@@ -9,18 +9,18 @@
 <body ng-controller="NameCtrl">
     <input type="text" ng-model="name">
     <div>{{name}}</div>
+    <a href="javascript:void(0);" ng-click="getRandomName()">改名字</a>
     <script src="../assets/vendor/angular.js"></script>
     <script>
-    angular.module("app", ['ngRoute']);
-    angular.module("app")
-        .controller("NameCtrl", ['$scope', function($scope) {
-            $scope.names = ['joel', 'jack', 'jimmy', 'john'];
-            $scope.getRandomName = function() {
-                var index = Math.floor($scope.names.length * Math.random());
-                $scope.name = $scope.names[index];
-            }
-            $scope.getRandomName();
-        }]);
+    var app = angular.module("app", []);// 即使是空的，也要传个空数组，否则和报错。
+    app.controller("NameCtrl", ['$scope', function($scope) {
+        $scope.names = ['joel', 'jack', 'jimmy', 'john'];
+        $scope.getRandomName = function() {
+            var index = Math.floor($scope.names.length * Math.random());
+            $scope.name = $scope.names[index];
+        }
+        $scope.getRandomName();
+    }]);
     </script>
 </body>
 

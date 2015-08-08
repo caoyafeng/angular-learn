@@ -12,8 +12,9 @@
 </head>
 
 <body ng-controller="Ctrl">
-    <div ng-cloak>{{ name }}</div>
+    <div ng-cloak>没有闪烁{{ name }}</div>
     <div ng-bind="name"></div>
+    <div style="color:#f00;">闪烁了把：{{name}}</div>
     <script src="../assets/vendor/angular.js"></script>
     <script>
     var app = angular.module("app", []);

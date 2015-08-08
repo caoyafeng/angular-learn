@@ -41,10 +41,9 @@
 * [一些坑](shit)
 * 过滤器
 * [angular自带工具方法](tool)
+* 国际化
 * 加载器
 * 测试
-
-
 
 
 ## angular的文件
@@ -67,6 +66,8 @@
 * [AngularJs入门教程](http://angularjs.cn/T006)AngularJs AngularJs中文社区提供
 * [todo-mvc angular](https://github.com/tastejs/todomvc/tree/master/examples/angularjs)
 * [Angular指令及组件的全面范例](https://github.com/angular-cn/ng-showcase)
+* [Angular路由深入浅出](http://div.io/topic/1096)
+* [Angular2的一堆资源](https://github.com/timjacobi/angular2-education)
 
 ## 博客
 * [破狼](http://www.cnblogs.com/whitewolf/category/404298.html)
