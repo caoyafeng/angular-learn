@@ -1,6 +1,11 @@
 # 服务
 与视图(View)无关的业务逻辑，可以移到服务中。
 
+angular有3个方式来创建服务。
+* factory 用return的方式暴露api
+* service 在this上暴露api
+* provide $get的方式暴露api
+
 ## 创建服务
 ```
 angular.module('tool', [])
@@ -34,3 +39,7 @@ angular.module("app")
             $scope.max = array.getMax(numbers);
         }]);
 ```
+
+
+## 拓展阅读
+* [[AngularJs]淺談Angular.js的Provider機制](http://kirkchen.logdown.com/posts/245678-angularjs-talking-about-the-angularjs-provider-mechanisms)

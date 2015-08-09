@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>服务</title>
+    <title>用factory做服务</title>
 </head>
 
 <body ng-controller="getMaxCtrl">
@@ -33,11 +33,11 @@
 
     angular.module("app", ['tool']);// 服务所在模块
     angular.module("app")
-        .controller("getMaxCtrl", ['array', '$scope', function(array, $scope) {
+        .controller("getMaxCtrl", function(array, $scope) {//array是在tool这个module中定义的
             // 使用服务
             var numbers = [1, 2, 3, 4, 5];
             $scope.max = array.getMax(numbers);
-        }]);
+        });
     </script>
 </body>
 

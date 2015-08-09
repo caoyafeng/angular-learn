@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>多个应用</title>
+</head>
+
+<body>
+	<div id="app1" ng-controller="Ctrl">
+		<span ng-bind="name"></span>
+	</div>
+	<div id="app2" ng-controller="Ctrl">
+		<span ng-bind="name"></span>
+	</div>
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    var app1 = angular.module("app1", []);
+    app1.controller("Ctrl", function($scope) {
+    	$scope.name = 'app1';
+    });
+    var app2 = angular.module("app2", []);
+    app2.controller("Ctrl", function($scope) {
+    	$scope.name = 'app2';
+    });
+    angular.element(document).ready(function() {
+    	angular.bootstrap(document.getElementById("app1"), ["app1"]);
+    	angular.bootstrap(document.getElementById("app2"), ["app2"]);
+    });
+    </script>
+</body>
+
+</html>

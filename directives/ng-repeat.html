@@ -13,6 +13,10 @@
             {{phone.name}}
             <p>{{phone.snippet}}</p>
         </li>
+        <!-- 当数组中有重复的基本元素时会报错，要用  track by $index -->
+        <li ng-repeat="item in [1,5,6,1] track by $index">
+            {{item}}
+        </li>
     </ul>
     遍历对象
     <ul>

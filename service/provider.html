@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>用provider做服务</title>
+</head>
+
+<body ng-controller="getMaxCtrl">
+    <h2>求数组最大值</h2> {{max}}
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    // 定义服务 用service时， 会用new 来创建，可访问的属性放在this上
+    angular.module('tool', [])
+        .provider('arrayProvider', function() {
+            // 必须定义 $get。 这个函数中的返回值即为外部的可控制的值
+            this.$get = function() {
+                return {
+                    getMax: getMax
+                };
+            }
+
+            function getMax(arr) {
+                if (arr.length === 0) {
+                    return NaN;
+                }
+                var max = arr[0];
+                arr.forEach(function(each) {
+                    if (each > max) {
+                        max = each;
+                    }
+                });
+                return max;
+            }
+        });
+
+    var app = angular.module("app", ['tool']); // 服务所在模块
+    app.provider('testProvider', function() {
+        var self = this;
+        this.$get = function(){
+            return self.name;
+        };
+    });
+    // 好奇怪，就是报错。。。Error: [$injector:unpr] Unknown provider: testProvider
+    // app.config(['testProvider',function(p){
+    //     p.name = 'arr provider~~~';
+    // }]);
+    app.controller("getMaxCtrl", function(arrayProvider, $scope) { //array是在tool这个module中定义的
+            // 使用服务
+            var numbers = [1, 2, 3, 4, 5];
+            $scope.max = arrayProvider.getMax(numbers);
+            console.log(arrayProvider.name);
+        });
+    </script>
+</body>
+
+</html>
