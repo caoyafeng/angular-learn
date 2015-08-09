@@ -45,6 +45,22 @@ app.controller("ParamCtrl", ['$scope', '$routeParams', function($scope, $routePa
 
 ## 按需加载Controller
 
+## ngView加载成功的事件
+$viewContentLoaded。
+```
+$scope.$on('$viewContentLoaded', function() {
+ console.log('viewContentLoaded');
+});
+```
+
+## 用jQuery选取ngView中元素的时机
+能在$viewContentLoaded事件回调中执行是ok的，否则，需要用setTimeout这黑科技
+```
+setTimeout(function(){
+    // 等待DOM回来，黑科技，哈哈哈
+    $(elem)
+}, 0);
+```
 
 ## 参考
 * [理解AngularJS指令 -- ng-view](http://www.html-js.com/article/Understanding-the-AngularJS-command--ngview-with-Angular-development-web-application)
