@@ -28,6 +28,7 @@
   * `as`
   * `$parent`
   * 事件： 作用域之间接传递消息
+* [双向绑定](two-way-binding)
 * [指令](directives) (Directives)
   * 系统指令
   * 自定义指令

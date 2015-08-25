@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>options</title>
+</head>
+
+<body ng-controller="PhoneListCtrl">
+    <!-- id（ng-modult的的字段） as name(显示的name) for item in dataSource  好奇葩。。。-->
+    <select ng-model="currentPhone" ng-options="phone.id as phone.snippet for phone in phones"></select>
+    <div>选择了：{{currentPhone}}</div>
+    <select>
+        <option  ng-repeat="phone in phones" value="{{phone.value}}">{{phone.snippet}}</option>
+    </select><br>
+    <select ng-model="currentPhone2">
+        <!-- 开始会有空白。。。 并且拿不到值。。。-->
+        <option  ng-repeat="phone in phones" value="{{phone.value}}">{{phone.snippet}}</option>
+    </select>
+    <div>选择了：{{currentPhone2}}</div>
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    angular.module("app", []);
+    angular.module("app").controller("PhoneListCtrl", ["$scope", function($scope) {
+        $scope.phones = [{
+            id: 'sanxing',
+            name: '三星',
+            snippet: '三星手机'
+        }, {
+            id: 'iphone',
+            name: 'iphone',
+            snippet: 'iphone手机'
+        }];
+
+        $scope.currentPhone = $scope.phones[0].id;
+        $scope.currentPhone2 = '';
+
+    }]);
+    </script>
+    <!--
+for array datasources
+    label for value in array
+    select as label for value in array
+    label group by group for value in array
+    select as label group by group for value in array
+
+for object data sources
+    label for(key,value) in object
+    select as label for(key,value) in object
+    label group by group for(key,value) in object
+    select as label group by group for(key,value) in object
+-->
+</body>
+
+</html>
