@@ -17,7 +17,7 @@
         <!-- 开始会有空白。。。 并且拿不到值。。。-->
         <option  ng-repeat="phone in phones" value="{{phone.value}}">{{phone.snippet}}</option>
     </select>
-    <div>选择了：{{currentPhone2}}</div>
+    <div>选择了：{{currentPhone3}}</div>
     <script src="../assets/vendor/angular.js"></script>
     <script>
     angular.module("app", []);
@@ -33,8 +33,6 @@
         }];
 
         $scope.currentPhone = $scope.phones[0].id;
-        $scope.currentPhone2 = '';
-
     }]);
     </script>
     <!--
