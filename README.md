@@ -47,11 +47,10 @@
   * 内置过滤器
   * 自定义过滤器
 * [angular自带工具方法](tool)
+* 国际化
 * 加载器
 * [测试](test)
 * [最佳实践](best-practice)
-
-
 
 
 ## angular的文件
@@ -70,11 +69,11 @@
 
 ## 资源
 * [Angular Guide中文版](http://docs.ngnice.com/guide)
-* [AngularJS-Learning-zh_CN](https://github.com/justjavac/AngularJS-Learning-zh_CN)
 * [angularjs-cn](https://github.com/peiransun/angularjs-cn) "AngularJS"中译本 -《AngularJS》
 * [AngularJs入门教程](http://angularjs.cn/T006)AngularJs AngularJs中文社区提供
-* [todo-mvc angular](https://github.com/tastejs/todomvc/tree/master/examples/angularjs)
 * [Angular指令及组件的全面范例](https://github.com/angular-cn/ng-showcase)
+* [Angular路由深入浅出](http://div.io/topic/1096)
+* [Angular2的一堆资源](https://github.com/timjacobi/angular2-education)
 * [Angular风格指南](https://github.com/johnpapa/angular-styleguide/blob/master/i18n/zh-CN.md)
 * [awesome-angularjs](https://github.com/gianarb/awesome-angularjs)
 

@@ -32,6 +32,10 @@
         $scope.toPage = function(i) {
             $location.path('/page' + i);
         };
+        // 每次ngview被加载时会执行
+        $scope.$on('$viewContentLoaded', function() {
+            console.log('viewContentLoaded');
+        });
     }]);
 
     app.controller("Page1Ctrl", ['$scope', function($scope) {
