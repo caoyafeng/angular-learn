@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>弹出基本</title>
+    <link rel="stylesheet" href="vendor/ng-dialog/css/ngDialog.css">
+    <link rel="stylesheet" href="vendor/ng-dialog/css/ngDialog-theme-default.css">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    a:focus {
+        outline: none;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    .fruit__item {
+        margin-bottom: 10px;
+    }
+    
+    .fruit__item.selected {
+        outline: 2px solid #f00;
+    }
+    
+    .fruit__img {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+    }
+    </style>
+</head>
+
+<body ng-controller="Ctrl">
+    <div ng-show="selectedFruit">{{selectedFruit.name}}</div>
+    <a href="javascript:void(0);" ng-click="openSelectFruitDialog()">选择水果</a>
+    <script type="text/ng-template" id="selectFruitDialog">
+        <h2>选择水果</h2>
+        <a href="javascript:void(0);" ng-click="add()">添加</a>
+        <ul>
+            <li ng-repeat="fruit in fruits" ng-click="select(fruit)" ng-class="getClassName(fruit)">
+                <h3>{{fruit.name}}</h3>
+                <a href="javascript:void(0);" ng-click="edit(fruit)">编辑</a>
+                <div>
+                    <img ng-src="{{src}}" ng-repeat="src in fruit.images" class="fruit__img">
+                </div>
+            </li>
+        </ul>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button  ngdialog-button-primary" ng-click="confirm()">确定</button>
+            <button type="button" class="ngdialog-button" ng-click="cancel()">取消</button>
+        </div>
+    </script>
+    <script type="text/ng-template" id="editFruitDialog">
+        <h2>{{action == 'edit' ? '编辑' : '创建'}}水果</h2>
+        <div>
+            <lable>名称</lable>
+            <input type="text" ng-model="fruit.name">
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button  ngdialog-button-primary" ng-click="confirm()">确定</button>
+            <button type="button" class="ngdialog-button" ng-click="cancel()">取消</button>
+        </div>
+    </script>
+    <!--
+    3. dialog1完全显示后，调用某操作
+
+  	选照片那~ 图用幻灯~
+    -->
+    <!--<script src="../assets/vendor/angular.js"></script>-->
+    <script src="../assets/vendor/angular.js"></script>
+    <script src="vendor/ng-dialog/js/ngDialog.js"></script>
+    <script>
+    var app = angular.module("app", ['ngDialog']);
+    app.config(['ngDialogProvider', function(ngDialogProvider) {
+        ngDialogProvider.setDefaults({
+            className: 'ngdialog-theme-default',
+            plain: false,
+            showClose: true,
+            closeByDocument: true,
+            closeByEscape: true,
+            appendTo: false,
+            preCloseCallback: function() {
+                // console.log('before close');
+            }
+        });
+    }]);
+
+    app.controller("Ctrl", function($scope, ngDialog, $timeout, $rootScope) {
+        $scope.fruits = [{
+            id: 1,
+            name: '果汁',
+            images: ['images/juice.jpeg']
+        }, {
+            id: 2,
+            name: '葡萄',
+            images: ['images/grape.png', 'images/grape2.png']
+        }];
+        $scope.selectedFruit = $scope.fruits[0];
+
+        $scope.openSelectFruitDialog = function() {
+            ngDialog.open({
+                template: 'selectFruitDialog',
+                controller: 'SelectFruitController',
+                data: {
+                    fruits: $scope.fruits,
+                    selectedFruit: $scope.selectedFruit
+                }
+            });
+        };
+
+        $rootScope.$on('fruit-slected', function(event, data) {
+            $scope.selectedFruit = data;
+        });
+
+        $rootScope.$on('fruit-updated', function(event, data) {
+            $scope.fruits = data.fruits;
+            $scope.selectedFruit = data.selectedFruit;
+            $scope.openSelectFruitDialog();
+        });
+
+        // 有些操作需要完全显示才能操作，例如有些幻灯组件。。。
+        $rootScope.$on('ngDialog.opened', function(e, $dialog) {
+        	// debugger;
+            // console.log('ngDialog opened: ' + $dialog.attr('id'));
+        });
+
+
+    });
+	// 选水果
+    app.controller('SelectFruitController', function($scope, ngDialog, $rootScope) {
+        if ($scope.ngDialogData.selectedFruit) {
+            $scope.selectedFruitId = $scope.ngDialogData.selectedFruit.id;
+        } else {
+            $scope.selectedFruitId = $scope.ngDialogData.fruits[0].id;
+        }
+        $scope.fruits = angular.copy($scope.ngDialogData.fruits || []);
+
+        $scope.getClassName = function(fruit) {
+            var className = ['fruit__item'];
+            if (fruit.id === $scope.selectedFruitId) {
+                className.push('selected');
+            }
+            return className.join(' ');
+        }
+
+        $scope.select = function(fruit) {
+            $scope.selectedFruitId = fruit.id;
+        }
+
+        $scope.edit = function(fruit) {
+            ngDialog.close();
+            ngDialog.open({
+                template: 'editFruitDialog',
+                controller: 'EditFruitController',
+                data: {
+                    fruit: fruit,
+                    fruits: $scope.fruits
+                }
+            });
+        }
+
+        $scope.add = function(fruit) {
+            ngDialog.close();
+            ngDialog.open({
+                template: 'editFruitDialog',
+                controller: 'EditFruitController',
+                data: {
+                    fruits: $scope.fruits
+                }
+            });
+        }
+
+        $scope.confirm = function() {
+            var selectedFrunt = $scope.fruits.filter(function(fruit) {
+                return fruit.id === $scope.selectedFruitId;
+            })[0];
+            $rootScope.$emit('fruit-slected', selectedFrunt);
+            ngDialog.close();
+        }
+
+        $scope.cancel = function (argument) {
+            ngDialog.close();
+        };
+    });
+	// 编辑/新增水果
+    app.controller('EditFruitController', function($scope, ngDialog, $rootScope) {
+        $scope.fruits = $scope.ngDialogData.fruits;
+        if ($scope.ngDialogData.fruit) {
+            $scope.fruit = angular.copy($scope.ngDialogData.fruit);
+        }
+        $scope.action = $scope.fruit ? 'edit' : 'create';
+
+        $scope.confirm = function() {
+            var selectedFruit;
+            if ($scope.action === 'edit') {
+                var updateFruitIndex = -1;
+                $scope.fruits.forEach(function(fruit, index) {
+                    if (fruit.id === $scope.fruit.id) {
+                        updateFruitIndex = index;
+                    }
+                });
+                if (updateFruitIndex !== -1) {
+                    $scope.fruits[updateFruitIndex] = $scope.fruit;
+                }
+
+            } else {
+                $scope.fruit.id = (Math.random() + '').substr(2, 5);
+                $scope.fruits.push($scope.fruit);
+            }
+            ngDialog.close();
+            $rootScope.$emit('fruit-updated', {
+                fruits: $scope.fruits,
+                selectedFruit: $scope.fruit
+            });
+        }
+
+        $scope.cancel = function() {
+            ngDialog.close();
+            $rootScope.$emit('fruit-updated', {
+                fruits: $scope.fruits,
+                selectedFruit: $scope.fruit
+            });
+        };
+    });
+    </script>
+</body>
+
+</html>
