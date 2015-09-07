@@ -76,6 +76,7 @@
 * [Angular2的一堆资源](https://github.com/timjacobi/angular2-education)
 * [Angular风格指南](https://github.com/johnpapa/angular-styleguide/blob/master/i18n/zh-CN.md)
 * [awesome-angularjs](https://github.com/gianarb/awesome-angularjs)
+* [angular ui](http://angular-ui.github.io/) 一些基于angular的组件
 
 ## 博客
 * [破狼](http://www.cnblogs.com/whitewolf/category/404298.html)
