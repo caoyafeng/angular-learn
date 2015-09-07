@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ng-init</title>
+</head>
+
+<body ng-controller="Ctrl">
+    名字：{{name}}
+    <input type="text" ng-model="name">
+    <br> {{getSelectedDays()}}
+    <br>
+    <input type="checkbox" ng-true-value="'周一'" ng-false-value="'未选择周一'" ng-model="days[0]">周一
+    <input type="checkbox" ng-true-value="'周二'" ng-false-value="'未选择周二'" ng-model="days[1]">周二
+    <input type="checkbox" ng-true-value="'周三'" ng-false-value="'未选择周三'" ng-model="days[2]">周三
+    <input type="checkbox" ng-true-value="'周四'" ng-false-value="'未选择周四'" ng-model="days[3]">周四
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    var app = angular.module("app", []);
+    app.controller('Ctrl', ['$scope', function($scope) {
+        $scope.name = 'Joel';
+        $scope.days = {
+        	'0': '周一',
+        	'1': '未选择周二',
+        	'2': '未选择周三',
+        	'3': '未选择周四',
+        };
+        $scope.getSelectedDays = function() {
+            var res = [];
+            for (var key in $scope.days) {
+                // debugger;
+                // if ($scope.days[key] != '') {
+                    res.push($scope.days[key]);
+                // }
+            }
+            return res.join();
+            // body...
+        }
+    }]);
+    </script>
+</body>
+
+</html>
