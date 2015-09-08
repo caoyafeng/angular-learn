@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ng-change</title>
+</head>
+
+<body ng-controller="Ctrl">
+    <!-- 用ng-change时，必须用设置ng-model 否则会报错 -->
+    <input type="text" ng-model="input" ng-change="inputChange()">
+    <!-- 选文件不会触发inputFileChange。。。 -->
+    <input type="file" ng-model="inputFile" ng-change="inputFileChange()">
+    <!-- 应该这么做,呵呵呵 -->
+    <input type="file" ng-model="inputFile2" onchange="angular.element(this).scope().inputFileChange2(this)">
+    
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    var app = angular.module("app", []);
+    app.controller('Ctrl', ['$scope', function($scope) {
+        $scope.name = 'Joel';
+        $scope.inputChange = function () {
+            // 每次内容改变就被触发
+            console.log('input[text] changed');
+        };
+        $scope.inputFileChange = function () {
+            console.log('input[file] changed');
+        };
+        $scope.inputFileChange2 = function (input) {
+            console.log('input2[file] changed');
+        };
+    }]);
+    </script>
+</body>
+
+</html>
