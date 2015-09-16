@@ -10,15 +10,20 @@
     <!-- id（ng-modult的的字段） as name(显示的name) for item in dataSource  好奇葩。。。-->
     <select ng-model="currentPhone" ng-options="phone.id as phone.snippet for phone in phones"></select>
     <div>选择了：{{currentPhone}}</div>
-    <select>
-        <option  ng-repeat="phone in phones" value="{{phone.value}}">{{phone.snippet}}</option>
-    </select><br>
-    <select ng-model="currentPhone2">
+    <!-- 不加ng-model就不会有空白 -->
+    <select id="select2">
+        <option ng-repeat="phone in phones" value="{{phone.id}}" data-id="{{$index}}">{{phone.snippet}}</option>
+    </select>
+    <div>选择了：<span id="currentPhone2"></div>
+    <br>
+    <select ng-model="currentPhone3">
         <!-- 开始会有空白。。。 并且拿不到值。。。-->
-        <option  ng-repeat="phone in phones" value="{{phone.value}}">{{phone.snippet}}</option>
+        <option ng-repeat="phone in phones" value="{{phone.value}}">{{phone.snippet}}</option>
     </select>
     <div>选择了：{{currentPhone3}}</div>
+    <script src="../assets/vendor/jquery.js"></script>
     <script src="../assets/vendor/angular.js"></script>
+    <!--<script src="../assets/vendor/angular.1.0.2.js"></script> 旧版本的也支持-->
     <script>
     angular.module("app", []);
     angular.module("app").controller("PhoneListCtrl", ["$scope", function($scope) {
@@ -32,7 +37,11 @@
             snippet: 'iphone手机'
         }];
 
-        $scope.currentPhone = $scope.phones[0].id;
+        $scope.currentPhone = $scope.phones[0].id;// 如果不设置，那不能选中值
+        $('#currentPhone2').text($scope.phones[0].id);
+        $('#select2').change(function(){
+            $('#currentPhone2').text(this.value);
+        });
     }]);
     </script>
     <!--
