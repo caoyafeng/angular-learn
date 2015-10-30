@@ -69,6 +69,7 @@
 
 ## 资源
 * [AngularJS 学习 中文版](https://github.com/justjavac/AngularJS-Learning-zh_CN) 迷渡(justjavac)
+* [AngularJS学习笔记](http://www.zouyesheng.com/angular.htm) 比较深入浅出的感觉
 * [Angular Guide中文版](http://docs.ngnice.com/guide)
 * [angularjs-cn](https://github.com/peiransun/angularjs-cn) "AngularJS"中译本 -《AngularJS》
 * [AngularJs入门教程](http://angularjs.cn/T006)AngularJs AngularJs中文社区提供
