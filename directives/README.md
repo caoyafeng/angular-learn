@@ -81,6 +81,12 @@ angularjs的执行都是在DOM渲染完成之后，如果我们在angularjs执�
 * ng-blur
 * ng-change 设置该属性必须设置ng-model,只要ng-model变化，就会触发该事件
 
+### 防止事件冒泡
+
+```
+$event.stopPropagation()
+```
+
 ### ng-form
 表单相关的
 * ng-disabled true/false设置表单元素是否启用
