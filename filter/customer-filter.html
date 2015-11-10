@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>自定filter</title>
+</head>
+
+<body ng-controller="Ctrl">
+	<p>转小写:<span>{{'AbCdefgG323' | toLowercase}}</span></p>
+	<p>多个参数:<span  ng-bind="'a' | multiParams:'b':'c'"></span></p>
+
+    <script src="../assets/vendor/angular.js"></script>
+    <script>
+    var app = angular.module("app", []);
+    app.controller("Ctrl", function($scope) {
+    	$scope.today = new Date();// 直接在 ng-bind里用 new Date会报错
+
+    });
+    app.filter('toLowercase', function(){
+        var filter = function(str){
+            str = str + '';
+            return '自定义的~:' + str.toLowerCase();
+        }
+        return filter;
+    }).filter('multiParams', function(){
+        var filter = function(){
+            return '参数：' + [].slice.apply(arguments).join();
+        }
+        return filter;
+    });
+    </script>
+</body>
+
+</html>
