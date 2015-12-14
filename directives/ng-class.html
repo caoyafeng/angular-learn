@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ng-init</title>
+    <title>ng-class</title>
     <style>
     li{
     	display: inline-block;
@@ -16,6 +16,19 @@
     }
     li.active{
     	background-color: #f00;
+    }
+    .red,.green{
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        color: #fff;
+        text-align: center;
+    }
+    .red{
+        background-color: red;
+    }
+    .green{
+        background-color: green;
     }
     </style>
 </head>
@@ -32,6 +45,10 @@
     	<li class="{{getClass(2)}}" ng-click="click(2)">2</li>
     	<li class="{{getClass(3)}}" ng-click="click(3)">3</li>
     </ul>
+
+    
+    <div ng-class="{'red':true, 'green':isGreen}"> {{isGreen ? '绿色' : '红色'}}</div>
+    是绿色吗 <input type="checkbox" ng-model="isGreen">
     <script src="../assets/vendor/angular.js"></script>
     <script>
     var app = angular.module("app", []);
@@ -48,6 +65,9 @@
     		}
     		return className;
     	};
+
+
+        $scope.isGreen = true;
 
     }]);
     </script>
