@@ -64,6 +64,20 @@
 * angular-sanitize.js - Functionality to sanitize HTML
 * angular-touch.js - Touch events and other helpers for touch-enabled devices
 
+## 常见问题
+### $digest already in progress
+有时调用 $scope.$apply();会报 `$digest already in progress`。解决方案,用
+```
+$scope.$$phase || $scope.$apply();
+```
+详细见 http://stackoverflow.com/questions/14838184/error-digest-already-in-progress
+
+### 修改了变量怎么界面没反应
+一些异步代码回调中要加
+```
+$scope.$apply()
+```
+
 
 
 
