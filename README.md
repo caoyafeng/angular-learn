@@ -32,6 +32,8 @@
 * [指令](directives) (Directives)
   * 系统指令
   * 自定义指令
+* 系统事件
+  * $viewContentLoaded
 * [控制器](controller)
 * [数据监控](watch)
 * [服务](service)
