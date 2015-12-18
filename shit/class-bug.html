@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>class bug</title>
+</head>
+
+<body ng-controller="Ctrl">
+   <div class="tar {{className}}">Tar</div>
+   <a ng-click="addClass()"> 用jquery加类名</a>
+   <a ng-click="removeClass()"> 用jquery删除类名</a>
+   <a ng-click="angularUpdateClass()"> 用angular改类名</a>
+    <!-- <script src="../assets/vendor/angular.js"></script> -->
+    <script src="../assets/vendor/angular.1.0.2.js"></script>
+    <script src="../assets/vendor/jquery.js"></script>
+    <script>
+    angular.module("app", []);
+    angular.module("app")
+        .controller("Ctrl", function($scope) {
+            var $tar = $('.tar');
+            $scope.addClass = function () {
+                $tar.addClass('red');
+            }
+            $scope.removeClass = function () {
+                $tar.removeClass('red');
+            }
+            // 旧版本的angular 改classname时，会把jquery动态加的类名给删除
+            $scope.angularUpdateClass = function () {
+                if($scope.className === 'a'){
+                    $scope.className = 'b';
+                } else {
+                    $scope.className = 'a';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
