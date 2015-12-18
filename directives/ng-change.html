@@ -13,6 +13,12 @@
     <input type="file" ng-model="inputFile" ng-change="inputFileChange()">
     <!-- 应该这么做,呵呵呵 -->
     <input type="file" ng-model="inputFile2" onchange="angular.element(this).scope().inputFileChange2(this)">
+
+
+    <select ng-model="fruit" ng-change="selectChange()">
+        <option value="1">苹果</option>
+        <option value="2">梨</option>
+    </select>
     
     <script src="../assets/vendor/angular.js"></script>
     <script>
@@ -29,6 +35,10 @@
         $scope.inputFileChange2 = function (input) {
             console.log('input2[file] changed');
         };
+        var fruits = {'1':'苹果', '2': '梨'};
+        $scope.selectChange = function () {
+            console.log('选择了：' + fruits[$scope.fruit]);
+        }
     }]);
     </script>
 </body>
