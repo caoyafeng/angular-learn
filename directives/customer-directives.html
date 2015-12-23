@@ -6,19 +6,41 @@
     <title>自定义指令</title>
 </head>
 
-<body>
+<body ng-controller="Ctrl">
     <div simple-directive></div>
+
+    <editor content="content"></editor>
+
+    <textarea ng-model="content" cols="30" rows="10"></textarea>
     <script src="../assets/vendor/angular.js"></script>
     <script>
     var app = angular.module("app", []);
-    app.directive('simpleDirective', function () {
+    app.directive('simpleDirective', function() {
         return {
             template: '<div>{{ name }}</div>',
-            controller: function($scope){
-                $scope.name="joel";
+            controller: function($scope) {
+                $scope.name = "joel";
+            },
+            link: function($scope, element, attrs) { // 用于 DOM 操作任务的函数
+                element.bind('click', function() {
+                    element.html('You clicked me!');
+                });
             }
         }
     });
+
+    app.directive('editor', function() {
+        return {
+            template: '<div class="editor" style="color:#f00;">编辑器里的内容:{{ content }}</div>',
+            scope: {content: '=content'},
+            restrict: 'E',// 元素
+            replace: true
+        }
+    });
+
+    app.controller('Ctrl', ['$scope', function($scope) {
+        $scope.content = '占位符';
+    }]);
     </script>
 </body>
 

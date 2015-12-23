@@ -87,6 +87,9 @@ angularjs的执行都是在DOM渲染完成之后，如果我们在angularjs执�
 $event.stopPropagation()
 ```
 
+### 自定义指令
+https://checkcheckzz.gitbooks.io/angularjs-learning-notes/content/chapter18/chapter18.html
+
 ### ng-form
 表单相关的
 * ng-disabled true/false设置表单元素是否启用
