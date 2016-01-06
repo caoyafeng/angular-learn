@@ -32,3 +32,9 @@ setTimeout(function() {
     {{item}}
 </li>
 ```
+
+### 模块机制
+1. 模块的依赖模块不能动态加载。
+1. 相同名字service在不同模块中会覆盖
+
+具体介绍见[这里](https://github.com/xufei/blog/issues/17)
