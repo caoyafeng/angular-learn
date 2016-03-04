@@ -33,6 +33,8 @@ setTimeout(function() {
 </li>
 ```
 
+### ng-options 在没有设置 ng-model 的话不会生效
+
 ### 模块机制
 1. 模块的依赖模块不能动态加载。
 1. 相同名字service在不同模块中会覆盖
