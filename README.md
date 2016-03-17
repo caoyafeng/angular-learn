@@ -80,8 +80,10 @@ $scope.$$phase || $scope.$apply();
 $scope.$apply()
 ```
 
-
-
+### ng-model 自定义选中，未选中的值
+```
+<input type="checkbox" ng-model="someModel" ng-checked="someModel == 1" ng-true-value="1" ng-false-value="0">
+```
 
 ## 资源
 * [AngularJS 学习 中文版](https://github.com/justjavac/AngularJS-Learning-zh_CN) 迷渡(justjavac)
