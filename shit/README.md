@@ -35,6 +35,17 @@ setTimeout(function() {
 
 ### ng-options 在没有设置 ng-model 的话不会生效
 
+### ngModel 值不更新
+解决方案
+ngModel 改成对象上的属性。如
+```
+<input model="sth" type="text">
+<!-- 改成 -->
+<input model="someObj.sth" type="text">
+```
+
+[详细](http://www.cnblogs.com/whitewolf/p/ngmodel-zhi-bu-geng-xin-slash-xian-shi.html)
+
 ### 模块机制
 1. 模块的依赖模块不能动态加载。
 1. 相同名字service在不同模块中会覆盖
